@@ -9,6 +9,7 @@ public class Main {
 
        // ClassLoadingEx.ClassLoadingEx_inner classLoadingEx_inner = new ClassLoadingEx().new ClassLoadingEx_inner();
 
-        Class.forName("kode.core.java.Implen");
+      //  Class.forName("kode.core.java.Implen");
+
     }
 }
