@@ -11,5 +11,11 @@ public class Main {
 
       //  Class.forName("kode.core.java.Implen");
 
+        ClassLoadingEx classLoadingEx = new ClassLoadingEx();
+
+        System.out.println(classLoadingEx);
+        System.out.println(classLoadingEx.hashCode());
+        System.out.println(Integer.toHexString(classLoadingEx.hashCode()));
+
     }
 }
