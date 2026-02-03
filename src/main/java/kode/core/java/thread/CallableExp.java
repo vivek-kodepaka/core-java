@@ -13,6 +13,7 @@ public class CallableExp {
 
         ExecutorService ex = Executors.newFixedThreadPool(5);
         Future<String> fu = ex.submit(()->{return "callble";});
+
         System.out.println(fu.get());
     }
 }
