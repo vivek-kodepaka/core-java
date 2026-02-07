@@ -1,3 +1,65 @@
+
+## CAS
+<details>
+<summary>CAS</summary>
+
+```text
+CAS is faster because it is a hardware-level atomic operation that avoids blocking, context switching, and OS involvement; the JVM only provides wrappers around CPU instructions.
+```
+```text
+Why CAS is faster
+    CAS avoids blocking and context switching.
+
+Traditional synchronization (synchronized / locks)
+    Thread tries to acquire lock
+    If lock unavailable → thread blocks
+    OS puts thread to sleep
+    Later OS wakes it up
+
+This involves:
+    Context switch (expensive)
+    Kernel interaction
+    Thread scheduling
+
+CAS approach:
+- CAS works like this:
+
+    if (currentValue == expectedValue)
+        currentValue = newValue;
+    else
+        retry
+
+No blocking:
+Thread stays in user space
+Just retries in a loop (spin)
+This is called lock-free programming.
+```
+```text
+At which level is CAS implemented?
+
+1. Hardware Level (Actual implementation)
+    CAS is provided by CPU instructions:
+    x86 → CMPXCHG
+    ARM → LDREX/STREX
+
+So the real atomic operation happens in hardware.
+```
+```text
+2. JVM Level (Wrapper)
+
+JVM exposes CAS using:
+Unsafe.compareAndSwapInt()
+VarHandle.compareAndSet()
+
+Used internally by:
+AtomicInteger
+ConcurrentHashMap
+LongAdder
+
+So JVM does not implement CAS, it calls hardware instructions.
+```
+</details>
+
 ## Before java 1.2
 - Arrays only
 - Fixed size

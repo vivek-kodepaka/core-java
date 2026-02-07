@@ -1,6 +1,6 @@
 Java 8 was a major release focused on:
 
-- Functional programming
+- Functional programming - writeing code by using functions , avoiding changing data and focusing what to do then how to do, lamdas and streams
 - Streams
 - Date & Time API
 - Performance improvements
